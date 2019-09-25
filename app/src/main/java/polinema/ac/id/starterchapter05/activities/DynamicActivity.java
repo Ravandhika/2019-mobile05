@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import polinema.ac.id.starterchapter05.R;
+import polinema.ac.id.starterchapter05.fragments.BlueFragment;
 import polinema.ac.id.starterchapter05.fragments.RedFragment;
 
 public class DynamicActivity extends AppCompatActivity {
@@ -24,5 +25,8 @@ public class DynamicActivity extends AppCompatActivity {
     }
 
     public void handleClickLoadBlueFragment(View view) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.dynamic_fragment_placeholder, new BlueFragment());
+        fragmentTransaction.commit();
     }
 }
