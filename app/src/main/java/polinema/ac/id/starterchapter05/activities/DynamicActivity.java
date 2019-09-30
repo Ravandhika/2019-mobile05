@@ -19,18 +19,32 @@ public class DynamicActivity extends AppCompatActivity {
     }
 
     public void handleClickLoadRedFragment(View view) {
+
+        RedFragment redFragment = (RedFragment) getSupportFragmentManager().findFragmentByTag("Red_Fragment");
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_from_left,R.anim.enter_from_left,R.anim.exit_from_right);
-        fragmentTransaction.replace(R.id.dynamic_fragment_placeholder,new RedFragment());
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+        if(redFragment != null && redFragment.isVisible()){
+            fragmentTransaction.commit();
+        }
+        else{
+            fragmentTransaction.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_from_right);
+            fragmentTransaction.replace(R.id.dynamic_fragment_placeholder,new RedFragment(),"Red_Fragment");
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
+
     }
 
     public void handleClickLoadBlueFragment(View view) {
+        BlueFragment blueFragment = (BlueFragment) getSupportFragmentManager().findFragmentByTag("Blue_Fragment");
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_from_left,R.anim.enter_from_left,R.anim.exit_from_right);
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+        if(blueFragment != null && blueFragment.isVisible()){
+            fragmentTransaction.commit();
+        }
+        else{
+            fragmentTransaction.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_from_right);
+            fragmentTransaction.replace(R.id.dynamic_fragment_placeholder,new BlueFragment(),"Blue_Fragment");
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
     }
 }
