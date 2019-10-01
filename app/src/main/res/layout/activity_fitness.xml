@@ -30,6 +30,7 @@
         android:layout_marginTop="26dp"
         android:layout_marginBottom="52dp"
         android:background="#4FFFFFFF"
+        android:onClick="handleClickDipsFragment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton"
         app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -43,6 +44,7 @@
         android:layout_marginTop="27dp"
         android:layout_marginBottom="52dp"
         android:background="#4DFFFFFF"
+        android:onClick="handleClickHandstandFragment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton2"
         app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -62,8 +64,7 @@
         android:id="@+id/imageView16"
         android:layout_width="185dp"
         android:layout_height="157dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="172dp"
+        android:layout_marginEnd="100dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView14"
         app:layout_constraintTop_toTopOf="@+id/imageView14"
         app:srcCompat="@drawable/haspusup" />
@@ -94,7 +95,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <FrameLayout
-        android:id="@+id/pushups_fragment"
+        android:id="@+id/Fragment_dynamic"
         android:layout_width="401dp"
         android:layout_height="329dp"
         android:layout_marginBottom="52dp"
